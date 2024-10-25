@@ -6,59 +6,29 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
-    <style>
-        video{width: 100%}
-    </style>
+
+    <link href="//vjs.zencdn.net/7.10.2/video-js.min.css" rel="stylesheet">
+    <script src="//vjs.zencdn.net/7.10.2/video.min.js"></script>
 </head>
 <body>
-
 <video
-  id="mainPcVideo"
-  class="video-js main-video loaded"
-  src="https://dxvwb5n2xjot.cloudfront.net/pc-cut/pc-cut.mp4"
-  loop
-  muted
-  playsinline
+  id="my-video"
+  class="video-js"
+  controls
   preload="auto"
-></video>
-
-<button id="playButton" onclick="playVideo()" style="">Play Video</button>
-
-<script>
-  // 인스타 인앱 브라우저인지 확인하는 함수
-  function isInAppBrowser() {
-    const ua = navigator.userAgent || navigator.vendor || window.opera;
-    return /Instagram|FBAV/i.test(ua);
-  }
-
-  // 사용자 상호작용을 통한 재생
-  function playVideo() {
-    const video = document.getElementById("mainPcVideo");
-    video.play().catch(error => {
-      console.error("Video play error:", error);
-    });
-  }
-
-  document.addEventListener("DOMContentLoaded", function () {
-    const video = document.getElementById("mainPcVideo");
-    const playButton = document.getElementById("playButton");
-
-    if (isInAppBrowser()) {
-      // 인스타 인앱 브라우저에서 autoplay가 작동하지 않으면, 버튼을 통해 재생
-      playButton.style.display = "block";
-      video.removeAttribute("autoplay"); // autoplay 속성 제거
-    } else {
-      // 일반 브라우저에서는 autoplay로 재생 시도
-      video.play().catch(error => {
-        console.warn("Autoplay blocked, showing play button.");
-        playButton.style.display = "block";
-      });
-    }
-  });
-</script>
-
-
-
-<!--<video id="mainPcVideo" class="video-js main-video loaded" src="https://dxvwb5n2xjot.cloudfront.net/pc-cut/pc-cut.mp4" loop="" muted="" autoplay="" playsinline=""></video>-->
+  width="854"
+  height="480"
+  poster="test/test.png"
+  data-setup="{}"
+>
+  <source src="https://dxvwb5n2xjot.cloudfront.net/pc-cut/pc-cut.mp4" type="video/mp4" />
+  <p class="vjs-no-js">
+    To view this video please enable JavaScript, and consider upgrading to a
+    web browser that
+    <a href="https://videojs.com/html5-video-support/" target="_blank"
+      >supports HTML5 video</a
+    >
+  </p>
+</video>
 </body>
 </html>
