@@ -43,7 +43,7 @@
     const video = document.getElementById("mainPcVideo");
     const playButton = document.getElementById("playButton");
 
-    if (isInAppBrowser()) {
+    if (!isInAppBrowser()) {
       // 인스타 인앱 브라우저에서 autoplay가 작동하지 않으면, 버튼을 통해 재생
       playButton.style.display = "block";
       video.removeAttribute("autoplay"); // autoplay 속성 제거
