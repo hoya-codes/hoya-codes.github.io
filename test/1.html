@@ -22,16 +22,17 @@
           }
 
         document.addEventListener("DOMContentLoaded", function () {
-            const video = document.getElementById("mainPcVideo");
-            if (isInAppBrowser()) {
-              video.removeAttribute("autoplay"); // autoplay 속성 제거
-
-                setTimeout(function (){
-                    playVideo()
-                }, 1000)
-            }else{
-                playVideo()
-            }
+            // const video = document.getElementById("mainPcVideo");
+            playVideo()
+            // if (isInAppBrowser()) {
+            //   video.removeAttribute("autoplay"); // autoplay 속성 제거
+            //
+            //     setTimeout(function (){
+            //         playVideo()
+            //     }, 1000)
+            // }else{
+            //     playVideo()
+            // }
 
             video.play().catch(error => {
               console.error("Video play error:", error);
@@ -50,7 +51,6 @@
   loop
   muted
   playsinline
-  autoplay
   preload="auto"
 >
     <p class="vjs-no-js">
